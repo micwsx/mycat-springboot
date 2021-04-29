@@ -1,0 +1,39 @@
+#应用配置
+server:
+  port: 8080
+
+#数据源配置
+spring:
+  druid:
+     url: jdbc:mysql://192.168.1.100:3317/enjoy?useCompression=true
+     jdbcUrl: jdbc:mysql://192.168.1.100:3307/enjoy?useCompression=true
+     username: root
+     password: root
+     driver-class-name: org.gjt.mm.mysql.Driver
+     initialSize: 12
+     minIdle: 2
+     maxActive: 12
+     maxWait: 6000
+     timeBetweenEvictionRunsMillis: 60000
+     minEvictableIdleTimeMillis: 300000
+     validationQuery: SELECT 1
+     testWhileIdle: true
+     testOnBorrow: false
+     testOnReturn: false
+     poolPreparedStatements: true
+     maxPoolPreparedStatementPerConnectionSize: 20
+     filters: stat,wall
+     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+  aop:
+      proxy-target-class: false
+
+#mybatis配置
+mybatis:
+  type-aliases-package: com.enjoy.domain
+  #mapper-locations: classpath:resources/xml/*Mapper.xml
+#############log配置################
+ #日志级别
+logging:
+  level:
+    root: debug
+
